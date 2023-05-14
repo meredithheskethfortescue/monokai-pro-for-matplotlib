@@ -1,0 +1,15 @@
+# background colors
+axes.facecolor : {bg_light}
+figure.facecolor : {bg_dark}
+legend.facecolor: {bg_highlight}
+
+# axes
+axes.edgecolor : {white}
+xtick.color : {white}
+ytick.color : {white}
+axes.titlecolor : {white}
+legend.labelcolor : {white}
+grid.color : {comment_gray}
+
+# color cycle
+axes.prop_cycle : cycler('color', ['{blue}', '{orange}', '{green}', '{red}', '{purple}', '{gray}', '{yellow}'])
