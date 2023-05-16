@@ -13,3 +13,8 @@ grid.color : 94a2a2
 
 # color cycle
 axes.prop_cycle : cycler('color', ['7CD5F1', 'FFB270', 'A2E57B', 'FF6D7E', 'BAA0F8', '8b9798', 'FFED72'])
+
+# fonts
+font.monospace : ['JetBrains Mono', 'Consolas']
+font.sans-serif : ['Inter', 'Segoe UI light', 'DejaVu Sans', 'Computer Modern']
+font.serif : ['Computer Modern Roman', 'DejaVu Serif']
