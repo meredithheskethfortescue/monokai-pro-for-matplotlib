@@ -1,9 +1,31 @@
 """
 todo: Palette.green.as_rgb()
 """
+import abc
+from dataclasses import dataclass
 
 
-class Classic:
+class ThemeInterface(abc.ABCMeta):
+    bg_light: str
+    bg_dark: str
+    bg_highlight: str
+
+    white: str
+    comment_gray: str
+    light_gray: str
+    gray: str
+
+    red: str
+    orange: str
+    yellow: str
+    green: str
+    blue: str
+    purple: str
+
+
+@dataclass
+class Classic(metaclass=ThemeInterface):
+    """Classic Monokai Theme"""
     bg_light = '272822'
     bg_dark = '1d1e19'
     bg_highlight = '31322c'
@@ -21,7 +43,9 @@ class Classic:
     purple = 'b67aff'
 
 
-class Machine:
+@dataclass
+class Machine(metaclass=ThemeInterface):
+    """Monokai Pro - Filter: Machine"""
     bg_light = '273136'
     bg_dark = '1d2528'
     bg_highlight = '313a3e'
@@ -39,7 +63,8 @@ class Machine:
     purple = 'BAA0F8'
 
 
-class Octagon:
+class Octagon(metaclass=ThemeInterface):
+    """Monokai Pro - Filter: Octagon"""
     bg_light = '282a3b'
     bg_dark = '181924'
     bg_highlight = '313444'
@@ -57,7 +82,9 @@ class Octagon:
     purple = 'c997cc'
 
 
-class Ristretto:
+@dataclass
+class Ristretto(metaclass=ThemeInterface):
+    """Monokai Pro - Filter: Ristretto"""
     bg_light = '2d2525'
     bg_dark = '221c1c'
     bg_highlight = '372f2f'
@@ -75,7 +102,9 @@ class Ristretto:
     purple = 'a9a7ef'
 
 
-class Spectrum:
+@dataclass
+class Spectrum(metaclass=ThemeInterface):
+    """Monokai Pro - Filter: Spectrum"""
     bg_light = '222222'
     bg_dark = '191919'
     bg_highlight = '2c2c2d'

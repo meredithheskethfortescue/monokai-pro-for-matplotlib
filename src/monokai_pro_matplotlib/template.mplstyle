@@ -1,3 +1,4 @@
+# Monokai Pro Theme - Filter: {theme_filter}
 # background colors
 axes.facecolor : {bg_light}
 figure.facecolor : {bg_dark}
