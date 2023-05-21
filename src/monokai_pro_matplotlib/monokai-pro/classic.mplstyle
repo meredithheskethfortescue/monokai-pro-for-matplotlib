@@ -1,0 +1,21 @@
+# Monokai Pro Theme - Filter: Classic
+# background colors
+axes.facecolor : 272822
+figure.facecolor : 1d1e19
+legend.facecolor: 31322c
+
+# axes
+axes.edgecolor : fdfff0
+xtick.color : fdfff0
+ytick.color : fdfff0
+axes.titlecolor : fdfff0
+legend.labelcolor : fdfff0
+grid.color : 6e7065
+
+# color cycle
+axes.prop_cycle : cycler('color', ['3bdcf1', 'ff9100', '97e600', 'ff0073', 'b67aff', '919287', 'e7dc66'])
+
+# fonts
+font.monospace : ['JetBrains Mono', 'Consolas']
+font.sans-serif : ['Inter', 'Segoe UI light', 'DejaVu Sans', 'Computer Modern']
+font.serif : ['Computer Modern Roman', 'DejaVu Serif']

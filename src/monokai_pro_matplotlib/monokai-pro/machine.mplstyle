@@ -1,0 +1,21 @@
+# Monokai Pro Theme - Filter: Machine
+# background colors
+axes.facecolor : 273136
+figure.facecolor : 1d2528
+legend.facecolor: 313a3e
+
+# axes
+axes.edgecolor : f0fffc
+xtick.color : f0fffc
+ytick.color : f0fffc
+axes.titlecolor : f0fffc
+legend.labelcolor : f0fffc
+grid.color : 697678
+
+# color cycle
+axes.prop_cycle : cycler('color', ['7CD5F1', 'FFB270', 'A2E57B', 'FF6D7E', 'BAA0F8', '889797', 'FFED72'])
+
+# fonts
+font.monospace : ['JetBrains Mono', 'Consolas']
+font.sans-serif : ['Inter', 'Segoe UI light', 'DejaVu Sans', 'Computer Modern']
+font.serif : ['Computer Modern Roman', 'DejaVu Serif']
