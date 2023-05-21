@@ -9,7 +9,7 @@ xtick.color : f0fffc
 ytick.color : f0fffc
 axes.titlecolor : f0fffc
 legend.labelcolor : f0fffc
-grid.color : 94a2a2
+grid.color : 697678
 
 # color cycle
-axes.prop_cycle : cycler('color', ['7CD5F1', 'FFB270', 'A2E57B', 'FF6D7E', 'BAA0F8', '8b9798', 'FFED72'])
+axes.prop_cycle : cycler('color', ['7CD5F1', 'FFB270', 'A2E57B', 'FF6D7E', 'BAA0F8', '889797', 'FFED72'])

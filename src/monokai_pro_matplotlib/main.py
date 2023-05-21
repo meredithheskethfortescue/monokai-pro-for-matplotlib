@@ -3,23 +3,7 @@ import os
 
 import matplotlib.pyplot as plt
 
-
-class Palette:
-    # todo: Palette.green.as_rgb()
-    # todo: other filter
-    # Filter: Machine
-    bg_light = '273136'  # rgb(39, 49, 54)
-    bg_dark = '1d2528'  # rgb(29, 37, 40)
-    bg_highlight = '313a3e'  # rgb(49 58 62)
-    white = 'f0fffc'  # rgb(240 255 252)
-    comment_gray = '94a2a2'  # rgb(148 162 162)
-    gray = '8b9798'  # rgb(139, 151, 152)
-    red = 'FF6D7E'  # rgb(255, 109, 126)
-    orange = 'FFB270'  # rgb(255, 178, 112)
-    yellow = 'FFED72'  # rgb(255, 237, 114)
-    green = 'A2E57B'  # rgb(162, 229, 123)
-    blue = '7CD5F1'  # rgb(124, 213, 241)
-    purple = 'BAA0F8'  # rgb(186, 160, 248)
+import palette
 
 
 def overwrite_current_settings():
@@ -44,14 +28,14 @@ def overwrite_current_settings():
     ])
 
 
-def create_mplstyle_from_template(palette: Palette, path: str):
+def create_mplstyle_from_template(palette, path: str):
     # read template
-    with open('template_monokai.css', 'r') as file_template:
+    with open('template.mplstyle', 'r') as file_template:
         template = file_template.read()
 
     # fill template
     # todo: add header to outputfile
-    style_sheet = template.format(**Palette.__dict__)
+    style_sheet = template.format(**palette.__dict__)
 
     # write out
     dir_out = os.path.dirname(path)
@@ -63,7 +47,8 @@ def create_mplstyle_from_template(palette: Palette, path: str):
 
 if __name__ == '__main__':
     # overwrite_current_settings()
-    create_mplstyle_from_template(Palette(), 'machine.mplstyle')
+    create_mplstyle_from_template(palette.Machine, 'machine.mplstyle')
+
 
     def main():
         # get list of available parameters and their current value
