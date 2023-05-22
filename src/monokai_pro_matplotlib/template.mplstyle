@@ -16,6 +16,6 @@ grid.color : {comment_gray}
 axes.prop_cycle : cycler('color', ['{blue}', '{orange}', '{green}', '{red}', '{purple}', '{gray}', '{yellow}'])
 
 # fonts
-font.monospace : ['JetBrains Mono', 'Consolas']
-font.sans-serif : ['Inter', 'Segoe UI light', 'DejaVu Sans', 'Computer Modern']
-font.serif : ['Computer Modern Roman', 'DejaVu Serif']
+font.monospace : JetBrains Mono, Consolas, monospace
+font.sans-serif : Inter, Segoe UI light, DejaVu Sans, Computer Modern, sans-serif
+font.serif : Computer Modern Roman, DejaVu Serif, serif
