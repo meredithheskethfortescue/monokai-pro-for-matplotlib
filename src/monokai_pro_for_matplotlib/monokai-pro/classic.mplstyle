@@ -4,18 +4,31 @@ axes.facecolor : 272822
 figure.facecolor : 1d1e19
 legend.facecolor: 31322c
 
-# axes
-axes.edgecolor : fdfff0
+# text
+axes.titlecolor : fdfff0
+text.color : fdfff0
 xtick.color : fdfff0
 ytick.color : fdfff0
-axes.titlecolor : fdfff0
+axes.labelcolor : fdfff0
 legend.labelcolor : fdfff0
+
+# axes
+axes.edgecolor : fdfff0
 grid.color : 6e7065
+
+# other
+boxplot.boxprops.color : fdfff0
+boxplot.capprops.color : fdfff0
+boxplot.flierprops.color : fdfff0
+boxplot.whiskerprops.color : fdfff0
+hatch.color : fdfff0
+boxplot.flierprops.markeredgecolor : fdfff0
+patch.edgecolor : fdfff0
 
 # color cycle
 axes.prop_cycle : cycler('color', ['3bdcf1', 'ff9100', '97e600', 'ff0073', 'b67aff', '919287', 'e7dc66'])
 
 # fonts
-font.monospace : ['JetBrains Mono', 'Consolas']
-font.sans-serif : ['Inter', 'Segoe UI light', 'DejaVu Sans', 'Computer Modern']
-font.serif : ['Computer Modern Roman', 'DejaVu Serif']
+font.monospace : JetBrains Mono, Consolas, monospace
+font.sans-serif : Inter, Segoe UI light, DejaVu Sans, Computer Modern, sans-serif
+font.serif : Computer Modern Roman, DejaVu Serif, serif

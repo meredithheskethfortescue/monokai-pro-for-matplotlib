@@ -4,13 +4,26 @@ axes.facecolor : {bg_light}
 figure.facecolor : {bg_dark}
 legend.facecolor: {bg_highlight}
 
-# axes
-axes.edgecolor : {white}
+# text
+axes.titlecolor : {white}
+text.color : {white}
 xtick.color : {white}
 ytick.color : {white}
-axes.titlecolor : {white}
+axes.labelcolor : {white}
 legend.labelcolor : {white}
+
+# axes
+axes.edgecolor : {white}
 grid.color : {comment_gray}
+
+# other
+boxplot.boxprops.color : {white}
+boxplot.capprops.color : {white}
+boxplot.flierprops.color : {white}
+boxplot.whiskerprops.color : {white}
+hatch.color : {white}
+boxplot.flierprops.markeredgecolor : {white}
+patch.edgecolor : {white}
 
 # color cycle
 axes.prop_cycle : cycler('color', ['{blue}', '{orange}', '{green}', '{red}', '{purple}', '{gray}', '{yellow}'])
