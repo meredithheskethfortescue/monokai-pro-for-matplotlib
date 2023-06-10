@@ -25,25 +25,30 @@ def create_mplstyle_from_template(theme: themes.ThemeInterface, dir_out: str = '
 
 
 def main():
-    # get list of available parameters and their current value
-    # for key, value in zip(plt.rcParams, plt.rcParams.values()):
-    #     print(f"{key} : {value}")
-
-    # create *.mplstyle files from template
+    """Generate *.mplstyle files from template"""
     create_mplstyle_from_template(themes.Classic)
     create_mplstyle_from_template(themes.Machine)
     create_mplstyle_from_template(themes.Octagon)
     create_mplstyle_from_template(themes.Ristretto)
     create_mplstyle_from_template(themes.Spectrum)
 
-    plt.style.use('./monokai-pro/classic.mplstyle')
+
+def run_example():
+    # use one of the newly created themes
+    plt.style.use('./monokai-pro/machine.mplstyle')
+
+    # get list of available parameters and their current value
+    for key, value in zip(plt.rcParams, plt.rcParams.values()):
+        print(f"{key} : {value}")
 
     # test plot
-    plt.figure()
     for it in range(7):
-        plt.plot([0, it], '-o', label=f"$n_{it} = {it}$ lorem ipsum")
+        plt.plot([0, it], '-o', label=rf"$n_{it} = {it}\,\sigma$ label")
 
+    plt.text(.5, 5, "text")
     plt.title("Title")
+    plt.xlabel("$x$ label")
+    plt.ylabel("$y$ label")
     plt.grid()
     plt.legend()
     plt.show()
@@ -51,3 +56,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    run_example()
