@@ -6,19 +6,20 @@ import matplotlib.pyplot as plt
 import themes
 
 
-def create_mplstyle_from_template(theme: themes.ThemeInterface, dir_out: str = './monokai-pro/'):
+def create_mplstyle_from_template(theme: themes.Theme, filename: str, description: str,
+                                  dir_out: str = './monokai-pro/'):
     """Create a *.mplstyle file from template"""
     # read template
     with open('template.mplstyle', 'r') as file_template:
         template = file_template.read()
 
     # fill template
-    style_sheet = template.format(**theme.__dict__, theme_filter=theme.__name__)
+    style_sheet = template.format(**theme.__dict__, theme_filter=description)
 
     # make sure that the output directory exists
     os.makedirs(os.path.dirname(dir_out), exist_ok=True)
     # name output file after the filter (which is also the class name but use the lower case here)
-    path_out = os.path.join(dir_out, f'{theme.__name__.lower()}.mplstyle')
+    path_out = os.path.join(dir_out, f'{filename.lower()}.mplstyle')
     # write out
     with open(path_out, 'w+') as file_out:
         file_out.write(style_sheet)
@@ -26,11 +27,11 @@ def create_mplstyle_from_template(theme: themes.ThemeInterface, dir_out: str = '
 
 def main():
     """Generate *.mplstyle files from template"""
-    create_mplstyle_from_template(themes.Classic)
-    create_mplstyle_from_template(themes.Machine)
-    create_mplstyle_from_template(themes.Octagon)
-    create_mplstyle_from_template(themes.Ristretto)
-    create_mplstyle_from_template(themes.Spectrum)
+    create_mplstyle_from_template(themes.classic, 'classic', "Monokai Theme (Classic)")
+    create_mplstyle_from_template(themes.machine, 'machine', "Monokai Pro Theme - Filter: Machine")
+    create_mplstyle_from_template(themes.octagon, 'octagon', "Monokai Pro Theme - Filter: Octagon")
+    create_mplstyle_from_template(themes.ristretto, 'ristretto', "Monokai Pro Theme - Filter: Ristretto")
+    create_mplstyle_from_template(themes.spectrum, 'spectrum', "Monokai Pro Theme - Filter: Spectrum")
 
 
 def run_example():
