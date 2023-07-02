@@ -3,17 +3,17 @@ import os
 
 import matplotlib.pyplot as plt
 
-import themes
+from monokai_pro_for_matplotlib import themes, Theme
 
 
-def create_mplstyle_from_template(theme: themes.ThemeInterface, dir_out: str = './monokai-pro/'):
+def create_mplstyle_from_template(theme: Theme, theme_filter: str, dir_out: str = './monokai-pro/'):
     """Create a *.mplstyle file from template"""
     # read template
     with open('template.mplstyle', 'r') as file_template:
         template = file_template.read()
 
     # fill template
-    style_sheet = template.format(**theme.__dict__, theme_filter=theme.__name__)
+    style_sheet = template.format(**theme.__dict__, theme_filter=theme_filter)
 
     # make sure that the output directory exists
     os.makedirs(os.path.dirname(dir_out), exist_ok=True)
@@ -26,18 +26,18 @@ def create_mplstyle_from_template(theme: themes.ThemeInterface, dir_out: str = '
 
 def main():
     """Generate *.mplstyle files from template"""
-    create_mplstyle_from_template(themes.Classic)
-    create_mplstyle_from_template(themes.Machine)
-    create_mplstyle_from_template(themes.Octagon)
-    create_mplstyle_from_template(themes.Ristretto)
-    create_mplstyle_from_template(themes.Spectrum)
+    create_mplstyle_from_template(themes.Classic, 'Classic')
+    # create_mplstyle_from_template(themes.Machine)
+    # create_mplstyle_from_template(themes.Octagon)
+    # create_mplstyle_from_template(themes.Ristretto)
+    # create_mplstyle_from_template(themes.Spectrum)
 
 
 def run_example():
     # use one of the newly created themes
     plt.style.use('./monokai-pro/machine.mplstyle')
 
-    # get list of available parameters and their current value
+    # get a list of the available parameters and their current value
     for key, value in zip(plt.rcParams, plt.rcParams.values()):
         print(f"{key} : {value}")
 
