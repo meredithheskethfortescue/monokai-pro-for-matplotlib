@@ -1,9 +1,10 @@
 """Adapted example plot from original matplotlib documentation
 https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html
 """
+# numpy is used for this example but not necessary for the package
+# noinspection PyPackageRequirements
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 from matplotlib.patches import Rectangle
 
 # Fixing random state for reproducibility
@@ -22,7 +23,7 @@ def plot_scatter(ax, prng, nb_samples=100):
 
 def plot_colored_lines(ax):
     """Plot lines with colors following the style color cycle."""
-    t = np.linspace(-10, 10, 100)
+    tn = np.linspace(-10, 10, 100)
 
     def sigmoid(t, t0):
         return 1 / (1 + np.exp(-(t - t0)))
@@ -31,7 +32,7 @@ def plot_colored_lines(ax):
     shifts = np.linspace(-5, 5, nb_colors)
     amplitudes = np.linspace(1, 1.5, nb_colors)
     for t0, a in zip(shifts, amplitudes):
-        ax.plot(t, a * sigmoid(t, t0), '-')
+        ax.plot(tn, a * sigmoid(tn, t0), '-')
     ax.set_xlim(-10, 10)
     return ax
 
@@ -57,8 +58,7 @@ def plot_colored_circles(ax, prng, nb_samples=15):
     """
     for sty_dict, j in zip(plt.rcParams['axes.prop_cycle'](),
                            range(nb_samples)):
-        ax.add_patch(plt.Circle(prng.normal(scale=3, size=2),
-                                radius=1.0, color=sty_dict['color']))
+        ax.add_patch(plt.Circle(prng.normal(scale=3, size=2), radius=1.0, color=sty_dict['color']))
     ax.grid(visible=True)
 
     # Add title for enabling grid
@@ -94,10 +94,7 @@ def plot_histograms(ax, prng, nb_samples=10000):
                 xytext=(0.9, 0.9), textcoords=ax.transAxes,
                 va="top", ha="right",
                 bbox=dict(boxstyle="round", alpha=0.2),
-                arrowprops=dict(
-                          arrowstyle="->",
-                          connectionstyle="angle,angleA=-95,angleB=35,rad=10"),
-                )
+                arrowprops=dict(arrowstyle="->", connectionstyle="angle,angleA=-95,angleB=35,rad=10"))
     return ax
 
 
@@ -126,18 +123,16 @@ def plot_figure(style_label=""):
 
     axs[4].add_artist(rec)
 
+
 if __name__ == "__main__":
+    def main():
+        # Plot a demonstration figure for every available style sheet.
+        styles = ['classic', 'machine', 'octagon', 'ristretto', 'spectrum']
+        for style in styles:
+            with plt.style.context(f'monokai-pro/{style}.mplstyle'):
+                plot_figure(style_label=style)
 
-    # Set up a list of all available styles, in alphabetical order but
-    # the `default` and `classic` ones, which will be forced resp. in
-    # first and second position.
-    # styles with leading underscores are for internal use such as testing
-    # and plot types gallery. These are excluded here.
-    style_list = ['classic', 'machine', 'octagon', 'ristretto', 'spectrum']
+        plt.show()
 
-    # Plot a demonstration figure for every available style sheet.
-    for style_label in style_list:
-        with plt.style.context(f'monokai-pro/{style_label}.mplstyle'):
-            plot_figure(style_label=style_label)
 
-    plt.show()
+    main()
