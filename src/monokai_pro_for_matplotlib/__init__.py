@@ -1,1 +1,1 @@
-from themes import ThemeInterface, Classic, Machine, Octagon, Ristretto, Spectrum
+from .themes import Theme, classic, machine, octagon, ristretto, spectrum
