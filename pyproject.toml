@@ -16,6 +16,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = ['matplotlib']
 
 [project.urls]
 "Homepage" = "https://github.com/meredithheskethfortescue/monokai-pro-for-matplotlib"

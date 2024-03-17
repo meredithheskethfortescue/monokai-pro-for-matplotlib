@@ -13,7 +13,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[req for req in requirements if req[:2] != "# "],
-    packages=['monokai-pro-for-matplotlib'],
+    packages=['src.monokai_pro_for_matplotlib'],
     package_data={'monokai-pro': ['machine.mplstyle',
                                   'octagon.mplstyle',
                                   'ristretto.mplstyle',
