@@ -1,4 +1,6 @@
-"""Monokai Pro for Matplotlib"""
+"""Create Monokai Pro stylesheets from templates
+Run this to recreate the *.mplstyle files for the Monokai Pro theme from the dataclasses.
+"""
 import os
 
 import matplotlib.pyplot as plt
@@ -6,10 +8,8 @@ import matplotlib.pyplot as plt
 import themes
 
 
-def create_mplstyle_from_template(theme: themes.Theme, filename: str, description: str,
-                                  dir_out: str = './monokai-pro/'):
+def create_mplstyle_from_template(theme: themes.Theme, path_out: str, description: str):
     """Create a *.mplstyle file from template"""
-    # todo: path_out instead of filename and dir_out, then split and assert naming conventions (lower case)
     # read template
     with open('template.mplstyle', 'r') as file_template:
         template = file_template.read()
@@ -20,6 +20,8 @@ def create_mplstyle_from_template(theme: themes.Theme, filename: str, descriptio
     style_sheet = template.format(**theme_without_hashes,
                                   theme_filter=description)
 
+    # split the path into dir and filename
+    dir_out, filename = os.path.split(path_out)
     # make sure that the output directory exists
     os.makedirs(os.path.dirname(dir_out), exist_ok=True)
     # name output file after the filter (which is also the class name but use the lower case here)
@@ -32,11 +34,11 @@ def create_mplstyle_from_template(theme: themes.Theme, filename: str, descriptio
 
 def create_monokai_stylesheets():
     """Generate *.mplstyle files from template"""
-    create_mplstyle_from_template(themes.classic, 'classic', "Monokai Theme (Classic)")
-    create_mplstyle_from_template(themes.machine, 'machine', "Monokai Pro Theme - Filter: Machine")
-    create_mplstyle_from_template(themes.octagon, 'octagon', "Monokai Pro Theme - Filter: Octagon")
-    create_mplstyle_from_template(themes.ristretto, 'ristretto', "Monokai Pro Theme - Filter: Ristretto")
-    create_mplstyle_from_template(themes.spectrum, 'spectrum', "Monokai Pro Theme - Filter: Spectrum")
+    create_mplstyle_from_template(themes.classic, './monokai-pro/classic', "Monokai Theme (Classic)")
+    create_mplstyle_from_template(themes.machine, './monokai-pro/machine', "Monokai Pro Theme - Filter: Machine")
+    create_mplstyle_from_template(themes.octagon, './monokai-pro/octagon', "Monokai Pro Theme - Filter: Octagon")
+    create_mplstyle_from_template(themes.ristretto, './monokai-pro/ristretto', "Monokai Pro Theme - Filter: Ristretto")
+    create_mplstyle_from_template(themes.spectrum, './monokai-pro/spectrum', "Monokai Pro Theme - Filter: Spectrum")
 
 
 def run_example():
