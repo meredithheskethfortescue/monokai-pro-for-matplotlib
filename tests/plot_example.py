@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
 # Fixing random state for reproducibility
-np.random.seed(19680801)
+np.random.seed(0)
 
 
 def plot_scatter(ax, prng, nb_samples=100):
@@ -49,10 +49,8 @@ def plot_bar_graphs(ax, prng, min_value=5, max_value=25, nb_samples=5):
 
 
 def plot_colored_circles(ax, prng, nb_samples=15):
-    """
-    Plot circle patches.
-
-    NB: draws a fixed amount of samples, rather than using the length of
+    """Plot circle patches.
+    NB: draws a fixed number of samples, rather than using the length of
     the color cycle, because different styles may have different numbers
     of colors.
     """
@@ -102,7 +100,7 @@ def plot_figure(style_label=""):
     """Setup and plot the demonstration figure with a given style."""
     # Use a dedicated RandomState instance to draw the same "random" values
     # across the different figures.
-    prng = np.random.RandomState(96917002)
+    prng = np.random.RandomState(0)
 
     fig, axs = plt.subplots(ncols=6, nrows=1, num=style_label,
                             figsize=(14.8, 2.8), layout='constrained')
@@ -129,7 +127,7 @@ if __name__ == "__main__":
         # Plot a demonstration figure for every available style sheet.
         styles = ['classic', 'machine', 'octagon', 'ristretto', 'spectrum']
         for style in styles:
-            with plt.style.context(f'monokai-pro/{style}.mplstyle'):
+            with plt.style.context(f'../src/monokai_pro_for_matplotlib/monokai-pro/{style}.mplstyle'):
                 plot_figure(style_label=style)
 
         plt.show()
